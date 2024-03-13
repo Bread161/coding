@@ -1,0 +1,228 @@
+1. Line Plot:
+
+import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+
+# Create a line plot
+plt.plot(x, y)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Line Plot Example')
+plt.show()
+
+
+2. Bar Plot:
+
+import matplotlib.pyplot as plt
+
+# Sample data
+categories = ['A', 'B', 'C', 'D']
+values = [10, 20, 15, 25]
+
+# Create a bar plot
+
+plt.bar(categories, values)
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Bar Plot Example')
+plt.show()
+
+
+
+3. Histogram:
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate random data
+data = np.random.randn(1000)
+
+# Create a histogram
+plt.hist(data, bins=30)
+plt.xlabel('Values')
+plt.ylabel('Frequency')
+plt.title('Histogram Example')
+plt.show()
+​
+
+4. Scatter Plot:
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate random data
+x = np.random.randn(100)
+y = 2 * x + np.random.randn(100)
+
+
+# Create a scatter plot
+plt.scatter(x, y)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Scatter Plot Example')
+plt.show()
+
+​
+
+5. Box Plot:
+
+import seaborn as sns
+import numpy as np
+
+
+# Generate random data
+data = np.random.randn(100)
+
+# Create a box plot
+sns.boxplot(data=data)
+plt.title('Box Plot Example')
+plt.show()
+
+
+6. Violin Plot:
+
+import seaborn as sns
+import numpy as np​
+
+# Generate random data
+data = np.random.randn(100)
+
+# Create a violin plot
+
+sns.violinplot(data=data)
+plt.title('Violin Plot Example')
+plt.show()
+
+​
+
+
+
+7. Heatmap:
+
+import seaborn as sns
+import numpy as np
+
+# Generate random data
+data = np.random.rand(10, 10)
+
+# Create a heatmap
+sns.heatmap(data)
+plt.title('Heatmap Example')
+plt.show()
+
+
+
+8. Area Plot:
+
+import matplotlib.pyplot as plt
+
+# Sample data #clcoding.com
+
+x = [1, 2, 3, 4, 5]
+y1 = [2, 4, 6, 8, 10]
+y2 = [1, 3, 5, 7, 9]
+
+# Create an area plot
+
+plt.fill_between(x, y1, color="skyblue", alpha=0.4)
+plt.fill_between(x, y2, color="salmon", alpha=0.4)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Area Plot Example')
+plt.show()
+
+
+
+9. Pie Chart:
+
+import matplotlib.pyplot as plt
+​
+# Sample data
+sizes = [30, 20, 25, 15, 10]
+labels = ['A', 'B', 'C', 'D', 'E']
+
+# Create a pie chart
+
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
+plt.title('Pie Chart Example')
+plt.show()
+
+
+
+10. Polar Plot:
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Sample data
+theta = np.linspace(0, 2*np.pi, 100)
+r = np.sin(3*theta)
+
+# Create a polar plot #clcoding.com
+plt.polar(theta, r)
+plt.title('Polar Plot Example')
+plt.show()
+
+
+
+11. 3D Plot:
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Sample data
+x = np.linspace(-5, 5, 100)
+y = np.linspace(-5, 5, 100)
+X, Y = np.meshgrid(x, y)
+Z = np.sin(np.sqrt(X**2 + Y**2))
+
+# Create a 3D surface plot
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z)
+ax.set_title('3D Plot Example')
+plt.show()
+
+
+
+12. Violin Swarm Plot:
+
+import seaborn as sns
+import numpy as np
+
+# Generate random data
+data = np.random.randn(100)
+
+#clcoding.com
+# Create a violin swarm plot
+
+sns.violinplot(data=data, inner=None, color='lightgray')
+sns.swarmplot(data=data, color='blue', alpha=0.5)
+plt.title('Violin Swarm Plot Example')
+plt.show()
+
+​
+
+13. Pair Plot:
+
+import seaborn as sns
+import pandas as pd
+
+# Load sample dataset
+iris = sns.load_dataset('iris')
+
+# Create a pair plot
+
+sns.pairplot(iris)
+plt.title('Pair Plot Example')
+plt.show()
+
+​
+
+
+
+​
+
