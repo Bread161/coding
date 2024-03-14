@@ -1,0 +1,138 @@
+1. Hashing Strings:
+import hashlib
+
+# Hash a string using SHA256 algorithm
+
+string_to_hash = "Hello, World!"
+hashed_string = hashlib.sha256(string_to_hash.encode()).hexdigest()
+print("Original String:", string_to_hash)
+print("Hashed String:", hashed_string)
+
+
+Original String: Hello, World!
+Hashed String: dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f
+
+
+2. Hashing Files:
+
+import hashlib
+
+def calculate_file_hash(file_path, algorithm='sha256'):
+    # Choose the hash algorithm
+    hash_algorithm = getattr(hashlib, algorithm)()
+
+    # Read the file in binary mode and update the hash object
+    with open(file_path, 'rb') as file:
+        for chunk in iter(lambda: file.read(4096), b''):
+            hash_algorithm.update(chunk)
+
+    # Get the hexadecimal representation of the hash value
+    hash_value = hash_algorithm.hexdigest()
+    return hash_value
+
+# Example usage
+
+file_path = 'example.txt'
+file_hash = calculate_file_hash(file_path)
+print("SHA-256 Hash of the file:", file_hash)
+
+SHA-256 Hash of the file: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+
+3. Using Different Hash Algorithms:
+
+import hashlib
+# Hash a string using different algorithms
+string_to_hash = "Hello, World!"
+
+# MD5
+
+md5_hash = hashlib.md5(string_to_hash.encode()).hexdigest()
+
+​
+
+# SHA1
+sha1_hash = hashlib.sha1(string_to_hash.encode()).hexdigest()
+
+# SHA512
+
+sha512_hash = hashlib.sha512(string_to_hash.encode()).hexdigest()
+print("MD5 Hash:", md5_hash)
+print("SHA1 Hash:", sha1_hash)
+print("SHA512 Hash:", sha512_hash)
+
+
+MD5 Hash: 65a8e27d8879283831b664bd8b7f0ad4
+SHA1 Hash: 0a0a9f2a6772942557ab5355d76af442f8f65e01
+SHA512 Hash: 374d794a95cdcfd8b35993185fef9ba368f160d8daf432d08ba9f1ed1e5abe6cc69291e0fa2fe0006a52570ef18c19def4e617c33ce52ef0a6e5fbe318cb0387
+
+4. Hashing Passwords (Securely):
+
+import hashlib
+# Hash a password securely using a salt
+password = "my_password"
+salt = "random_salt"
+hashed_password = hashlib.pbkdf2_hmac('sha256', password.encode(), salt.encode(), 100000)
+hashed_password_hex = hashed_password.hex()
+print("Salted and Hashed Password:", hashed_password_hex)
+Salted and Hashed Password: b18597b62cda4415c995eaff30f61460da8ff4d758d3880f80593ed5866dcf98
+
+
+
+5. Verifying Passwords:
+
+import hashlib
+# Verify a password against a stored hash
+stored_hash = "stored_hashed_password"
+def verify_password(password, stored_hash):
+    input_hash = hashlib.sha256(password.encode()).hexdigest()
+    if input_hash == stored_hash:
+        return True
+    else:
+        return False
+
+password_to_verify = "password_to_verify"
+if verify_password(password_to_verify, stored_hash):
+    print("Password is correct!")
+else:
+    print("Password is incorrect.")
+
+
+Password is incorrect.
+
+6. Hashing a String using SHA-256:
+
+import hashlib
+
+# Create a hash object
+hash_object = hashlib.sha256()
+
+# Update the hash object with the input data
+input_data = b'Hello, World!'
+hash_object.update(input_data)
+# Get the hexadecimal representation of the hash value
+hash_value = hash_object.hexdigest()
+
+print("SHA-256 Hash:", hash_value)
+
+SHA-256 Hash: dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f
+
+
+7. Hashing a String using MD5:
+
+import hashlib
+# Create a hash object
+hash_object = hashlib.md5()
+
+# Update the hash object with the input data
+input_data = b'Hello, World!'
+hash_object.update(input_data)
+
+# Get the hexadecimal representation of the hash value
+
+hash_value = hash_object.hexdigest()
+print("MD5 Hash:", hash_value)
+
+MD5 Hash: 65a8e27d8879283831b664bd8b7f0ad4
+
+​
